@@ -1,7 +1,4 @@
-# FlameExamples
+## Just a flutter example repository
 
-A new Flutter project.
-
-## Getting Started
-
-This project is flutter example repository
+### Exmaples
+    * Smootth Camera Follow
