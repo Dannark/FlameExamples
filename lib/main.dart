@@ -1,12 +1,12 @@
+import 'package:FlameExamples/examples/maze/maze.dart';
 import 'package:flame/util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import 'examples/smooth_camera_follow/smooth_camera_follow.dart';
-
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  var gameController = GameController();
+  //var gameController = SmoothCameraController();
+  var gameController = Maze();
   runApp(gameController.widget);
 
   var flameUtil = Util();

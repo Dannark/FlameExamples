@@ -4,12 +4,12 @@ import 'dart:ui';
 import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
 
-class GameController extends Game {
+class SmoothCameraController extends Game {
   static Rect screenSize;
 
   final MapController _mapController = MapController();
 
-  GameController() {}
+  SmoothCameraController() {}
 
   void render(Canvas c) {
     var bgPaint = Paint();
@@ -51,12 +51,15 @@ class MapController {
     _p.color = Color.fromRGBO(220, 220, 255, .1);
     c.drawCircle(Offset(50, 50), 10, _p);
 
-    //save the canvas state before drawnin the map elements
+    //the 'Camera' position is on left top corner of the screen, so offset this
+    //value to the mid point
+    var midScreenPointX =
+        _mapPosX - SmoothCameraController.screenSize.width / 2;
+    var midScreenPointY =
+        _mapPosY - SmoothCameraController.screenSize.height / 2;
+
+    //save the canvas state before drawing the map elements
     //this is where the camera logic happens
-
-    var midScreenPointX = _mapPosX - GameController.screenSize.width / 2;
-    var midScreenPointY = _mapPosY - GameController.screenSize.height / 2;
-
     c.save();
     c.translate(-midScreenPointX, -midScreenPointY);
     //After this line you can drawn all elements on the map that that will
